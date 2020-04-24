@@ -2,7 +2,7 @@
 # 中文版: [爱彼迎 React/JSX 风格指南](react/)
 > 翻译自 [Airbnb React/JSX Style Guide Style](https://github.com/airbnb/javascript/tree/master/react)
 
-[![Generic badge](https://img.shields.io/badge/Version-Feb7%202020-<COLOR>.svg)](https://shields.io/) 
+[![Generic badge](https://img.shields.io/badge/Version-Mar11%202020-<COLOR>.svg)](https://shields.io/) 
 [![Generic badge](https://img.shields.io/badge/UpToDate-Yes-<COLOR>.svg)](https://shields.io/) 
 
 # Update
