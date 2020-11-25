@@ -177,47 +177,68 @@
 
   - 遵循以下的JSX语法缩进/格式. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md) [`react/jsx-closing-tag-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md)
 
+
     ```jsx
     // bad
     <Foo superLongParam="bar"
          anotherSuperLongParam="baz" />
 
-    // good, 有多行属性的话, 新建一行关闭标签
+    // good
     <Foo
       superLongParam="bar"
       anotherSuperLongParam="baz"
     />
 
-    // 若能在一行中显示, 直接写成一行
+    // if props fit in one line then keep it on the same line
     <Foo bar="bar" />
 
-    // 子元素按照常规方式缩进
+    // children get indented normally
     <Foo
       superLongParam="bar"
       anotherSuperLongParam="baz"
     >
       <Quux />
     </Foo>
-    
-	// bad
-	{showButton &&
-	  <Button />
-	}
 
-	// bad
-	{
-	 showButton &&
-	   <Button />
-	}
+    // bad
+    {showButton &&
+      <Button />
+    }
 
-	// good
+    // bad
+    {
+      showButton &&
+        <Button />
+    }
 
-	{showButton && (
-		<Button />
-	)}
+    // good
+    {showButton && (
+      <Button />
+    )}
 
-	// good
-	{showButton && <Button />}
+    // good
+    {showButton && <Button />}
+
+    // good
+    {someReallyLongConditional
+      && anotherLongConditional
+      && (
+        <Foo
+          superLongParam="bar"
+          anotherSuperLongParam="baz"
+        />
+      )
+    }
+
+    // good
+    {someConditional ? (
+      <Foo />
+    ) : (
+      <Foo
+        superLongParam="bar"
+        anotherSuperLongParam="baz"
+      />
+    )}
     ```
 
 ## Quotes 单引号还是双引号
@@ -271,7 +292,7 @@
 
 ## Props 属性
 
-  - JSX属性名使用骆驼式风格`camelCase`.
+  - JSX 属性名使用小骆驼拼写法`camelCase`，如果属性名是一个 React 组件名，则使用大骆驼拼写法 `PascalCase`
 
     ```jsx
     // bad
@@ -284,6 +305,7 @@
     <Foo
       userName="hello"
       phoneNumber={12345678}
+      Component={SomeComponent}
     />
     ```
 
